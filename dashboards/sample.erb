@@ -1,0 +1,29 @@
+<% content_for :title do %>SurBTC Dashboard<% end %>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="header" data-view="Text"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="earned_fee" data-view="Number" data-title="Earned Commission" data-min="0" data-max="1e9"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="operations_count" data-view="Meter" data-title="Transactions Count" data-min="0" data-max="1e4"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="users" data-view="List" data-title="Usuarios"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="best_users" data-view="List" data-title="Mejores Usuarios"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="transacted_amount" data-view="Meter" data-title="Transacted Amount" data-min="0" data-max="1e6"></div>
+    </li>
+  </ul>
+</div>
