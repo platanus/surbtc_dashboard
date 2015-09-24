@@ -11,7 +11,10 @@ SCHEDULER.every SCHEDULER_TIME do
 
   send_event("header", text: "Last 30 Days")
   send_event("operations_count", value: now.operations_count)
-  send_event("transacted_amount", value: now.transacted_amount)
+  send_event("transacted_amount",
+    current: now.transacted_amount,
+    last: last_month.transacted_amount
+  )
   send_event("earned_fee",
     current: now.earned_fee,
     last: last_month.earned_fee
