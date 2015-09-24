@@ -9,7 +9,7 @@ SCHEDULER.every SCHEDULER_TIME do
   now = exchange.get_stats(1.month.ago, Time.now)
   last_month = exchange.get_stats(2.months.ago, 1.month.ago)
 
-  send_event("header", text: "Last 30 Days")
+  send_event("header", text: "Last 30 Days in CLP")
   send_event("operations_count", value: now.operations_count)
   send_event("transacted_amount",
     current: now.transacted_amount,
@@ -19,6 +19,11 @@ SCHEDULER.every SCHEDULER_TIME do
     current: now.earned_fee,
     last: last_month.earned_fee
   )
+  send_event("totals", items: [
+    { label: "Depósitos", value: now.deposited_volume },
+    { label: "Retiros", value: now.withdrawn_volume },
+    { label: "Comisión", value: now.earned_fee }
+  ])
   send_event("users", items: [
     { label: "Registrados", value: now.registered_users_count },
     { label: "Activos", value: now.active_users_count }
