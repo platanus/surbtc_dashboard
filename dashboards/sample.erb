@@ -1,3 +1,8 @@
+<script type='text/javascript'>
+$(function() {
+	Dashing.gridsterLayout('[{"col":1,"row":2,"size_x":1,"size_y":1},{"col":2,"row":1,"size_x":2,"size_y":1},{"col":1,"row":1,"size_x":1,"size_y":1},{"col":4,"row":2,"size_x":1,"size_y":1},{"col":2,"row":2,"size_x":1,"size_y":1},{"col":3,"row":2,"size_x":1,"size_y":1},{"col":4,"row":1,"size_x":1,"size_y":1}]')
+});
+</script>
 <% content_for :title do %>SurBTC Dashboard<% end %>
 
 <div class="gridster">
@@ -7,27 +12,27 @@
     </li>
 
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="earned_fee" data-view="Number" data-title="Earned Commission" data-min="0" data-max="1e9"></div>
+      <div data-id="earned_fee" data-view="Number" data-title="Monthly Fees" data-min="0" data-max="1e9"></div>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="operations_count" data-view="Meter" data-title="Transactions Count" data-min="0" data-max="1e4"></div>
+      <div data-id="operations_count" data-view="Meter" data-title="Monthly Trx" data-min="0" data-max="1e5"></div>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="users" data-view="List" data-title="Usuarios"></div>
+      <div data-id="users" data-view="List" data-title="Users"></div>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="best_users" data-view="List" data-title="Mejores Usuarios"></div>
+      <div data-id="best_users" data-view="List" data-title="Top Users"></div>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="totals" data-view="List" data-title="Totales" data-min="0" data-max="1e6"></div>
+      <div data-id="totals" data-view="List" data-title="Monthly Volume" data-min="0" data-max="1e6"></div>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="transacted_amount" data-view="Number" data-title="Transacted Amount" data-min="0" data-max="1e6"></div>
+      <div data-id="transacted_amount" data-view="Number" data-title="Trade Volume" data-min="0" data-max="1e6"></div>
     </li>
   </ul>
 </div>
