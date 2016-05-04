@@ -5,9 +5,6 @@ require 'logger'
 
 SCHEDULER.every "1h", :first_in => 0 do
   
-  $logger = Logger.new("logs/run2.log")
-  $logger.level = Logger::INFO
-
   trade_series = Hash.new
   new_users_series = Hash.new
   active_users_series = Hash.new

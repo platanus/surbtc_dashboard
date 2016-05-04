@@ -23,5 +23,11 @@ module Exchange
       )
       Exchange::StatsFactory.new(stats, UsersStatsCollection.new).build_collection
     end
+    def get_growth_stats
+      stats = api_caller.get("exchange_stats/growth").transform_to_many(
+        Exchange::SingleStat, root: "growth_stats"
+      )
+      Exchange::StatsFactory.new(stats, GrowthStatsCollection.new).build_collection 
+    end
   end
 end

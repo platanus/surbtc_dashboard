@@ -3,3 +3,4 @@ history.yml
 .rbenv-vars
 .env-vars*
 logs/*.log
+dashboard01.p12
