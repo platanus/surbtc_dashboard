@@ -1,8 +1,8 @@
 module Exchange
   class StatsFactory
-    def initialize(single_stats)
+    def initialize(single_stats, stats_collection = StatsCollection.new)
       self.single_stats = single_stats
-      self.stats_collection = StatsCollection.new
+      self.stats_collection = stats_collection
     end
 
     def build_collection

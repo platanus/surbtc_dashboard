@@ -1,0 +1,26 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #47bbb3;
+$value-color:       #fff;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+$arrow-up-color:    rgba(77, 158, 51, 0.7);
+$arrow-down-color:  rgba(223, 101, 54, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-number styles
+// ----------------------------------------------------------------------------
+.widget-number-header {
+
+  .fa.fa-arrow-up {
+    color: $arrow-up-color;
+  }
+
+  .fa.fa-arrow-down {
+    color: $arrow-down-color;
+  }
+
+}

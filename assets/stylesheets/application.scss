@@ -44,7 +44,7 @@ html {
 body {
   margin: 0;
   background-color: $background-color;
-  font-size: 12px;
+  font-size: 20px;
   color: $text-color;
   font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -92,19 +92,19 @@ h1, h2, h3, h4, h5, p {
   margin: 0;
 }
 h1 {
-  margin-bottom: 12px;
+  margin-bottom: 0.600em;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.5em;
   font-weight: 400;
 }
 h2 {
   text-transform: uppercase;
-  font-size: 76px;
+  font-size: 3.8em;
   font-weight: 700;
   color: $text-color;
 }
 h3 {
-  font-size: 25px;
+  font-size: 1.250em;
   font-weight: 600;
   color: $text-color;
 }
@@ -123,9 +123,9 @@ h3 {
   left: 0;
   top: 0;
   opacity: 0.1;
-  font-size: 275px;
+  font-size: 13.750em;
   text-align: center;
-  margin-top: 82px;
+  line-height: 1.2em;
 }
 
 .list-nostyle {
@@ -143,10 +143,11 @@ h3 {
 }
 
 .widget {
-  padding: 25px 12px;
+  padding: 0.750em 0.600em 1.500em;
   text-align: center;
   width: 100%;
   display: table-cell;
+  vertical-align: middle;
 }
 
 .widget.status-warning {
@@ -177,17 +178,17 @@ h3 {
 }
 
 .more-info {
-  font-size: 15px;
+  font-size: 0.750em;
   position: absolute;
-  bottom: 32px;
+  bottom: 1.600em;
   left: 0;
   right: 0;
 }
 
 .updated-at {
-  font-size: 15px;
+  font-size: 0.750em;
   position: absolute;
-  bottom: 12px;
+  bottom: 0.600em;
   left: 0;
   right: 0;
 }
@@ -196,7 +197,7 @@ h3 {
   display: none;
   position: fixed;
   top: 0;
-  margin: 0px auto;
+  margin: 0 auto;
   left: 50%;
   z-index: 1000;
   background: black;
@@ -205,7 +206,7 @@ h3 {
   border: 1px solid white;
   border-top: 0px;
   margin-left: -95px;
-  padding: 15px;
+  padding: 0.750em;
 }
 
 #save-gridster:hover {
@@ -221,7 +222,7 @@ h3 {
   background: white;
   top: 100px;
   color: black;
-  font-size: 15px;
+  font-size: 0.750em;
   padding-bottom: 4px;
 
   textarea {
@@ -243,7 +244,7 @@ h3 {
 }
 
 #container {
-  padding-top: 5px;
+  padding-top: 0.250em;
 }
 
 

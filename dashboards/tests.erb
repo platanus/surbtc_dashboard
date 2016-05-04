@@ -1,0 +1,130 @@
+<% content_for :title do %>
+	  Guille's SurBTC Dashboard
+<% end %>
+
+<div id="container">
+  <div class="header">
+    <div class="platanus gs_w" data-row="1" data-col="1" data-sizex="5">
+      <span class="header-logo">
+        <img src="/assets/logo.png" height="36px" />
+      </span>
+      <span data-id="clock"
+            data-view="clock_header"></span>
+      <span data-id="usd_in_clp"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Precio Dolar"></span>
+      <span data-id="bitstamp_price_usd"
+            data-view="number_header"
+            data-prefix="USD "
+            data-title="Bitstamp"></span>
+      <span data-id="bitstamp_price_clp"
+            data-view="number_header"
+            data-prefix="$ "
+            data-title="Bitstamp"></span>
+      <span data-id="surbtc_price"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="SurBTC"></span>
+    </div>
+    <div class="platanus gs_w" data-row="1" data-col="1" data-sizex="5">
+      <span class="header-logo">
+      </span>
+      <span data-id="btc_dep_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="BTC Dep Pend"></span>
+      <span data-id="clp_dep_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="CLP Dep Pend"></span>
+      <span data-id="btc_ret_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="BTC Ret Pend"></span>
+      <span data-id="clp_ret_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="CLP Ret Pend"></span>
+      <span data-id="ver_ident"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="Ver. Ident."></span>
+    </div>
+    <div class="platanus gs_w" data-row="1" data-col="1" data-sizex="5">
+      <span data-id="surbtc_spread"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Spread"></span>
+      <span data-id="surbtc_min_ask"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Min Ask"></span>
+      <span data-id="surbtc_max_bid"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Max Bid"></span>
+      <span data-id="24hrs_volume"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Volumen 24hrs"></span>
+    </div>
+  </div>
+
+
+  <div class="gridster">
+    <ul>
+	    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+        <div data-id="progress_bars" data-view="ProgressBars" data-title="Project Bars"></div>
+	</li>	    
+	    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+        <div data-id="monthly_trade"
+             data-view="Rickshawgraph"
+             data-title="Transado por Mes"
+	     data-moreinfo=""
+             style="background-color: white;"
+             data-renderer="bar"
+             data-min="0"
+             data-max=""
+             data-summary-method="none"
+	     data-legend="false"
+             data-color-scheme="rainbow"></div>
+      </li>
+      <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+        <div data-id="monthly_active_users"
+             data-view="Rickshawgraph"
+             data-title="Usuarios activos por mes"
+             data-moreinfo=""
+             style="background-color: white;"
+	     data-renderer="bar"
+	     data-stacked="false"
+             data-min="0"
+             data-max=""
+             data-summary-method="none"
+             data-legend="true"
+             data-color-scheme="rainbow"></div>
+      </li>
+
+      <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+            <div data-id="best_users" data-view="List" data-title="Top Usuarios x Comisión Mensual"></div>
+      </li>
+  
+      <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+        <div data-id="monthly_users"
+             data-view="Rickshawgraph"
+             data-title="Nuevos usuarios por mes"
+             data-moreinfo=""
+             style="background-color: white;"
+	     data-renderer="bar"
+	     data-stacked="false"
+             data-min="0"
+             data-max=""
+             data-summary-method="none"
+             data-legend="true"
+             data-color-scheme="rainbow"></div>
+      </li>
+
+    </ul>
+  </div>
+
+</div>

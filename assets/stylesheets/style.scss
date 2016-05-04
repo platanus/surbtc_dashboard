@@ -1,0 +1,65 @@
+body{
+  overflow: hidden;
+}
+
+#container{
+  padding-top: 0;
+}
+
+.header{
+  height: 152px;
+
+  .gs_w {
+      z-index: 2;
+      position: relative;
+      background: rgb(49, 49, 49);
+      text-align: left;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 2px;
+      height: 40px;
+      display:block;
+  }
+
+  .header-logo{
+    position: absolute;
+    margin-left: 10px;
+    line-height: 0.2em;
+  }
+
+  .header-text{
+    font-family: "Ubuntu",sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 1.2em;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+
+
+  .widget {
+    background-color: #464646;
+    height: 28px;
+    width: auto;
+    padding: 2px 5px;
+    margin: 2px 5px;
+    display: block;
+    float:right;
+    position:relative;
+    z-index: 10;
+
+
+    .diff{
+        font-size: 10px;
+    }
+  }
+}
+
+.surbtc_spread .fa.fa-arrow-down {
+  color: rgba(77, 158, 51, 0.7);
+}
+
+.surbtc_spread .fa.fa-arrow-up {
+  color: rgba(223, 101, 54, 0.7);
+}
+

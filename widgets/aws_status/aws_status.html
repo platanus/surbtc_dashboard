@@ -1,0 +1,40 @@
+<h1 class="title">
+  <span data-bind="title"></span>
+</h1>
+
+
+<table class="statuses">
+	<thead>
+	</thead>
+	<tbody>
+    <tr data-foreach-instance="instances" class="instance">
+      <td class="col-icon">
+        <img data-bind-src="instance.avatar" width="45px" data-showif="instance.avatar">
+        <img class="no-icon" src="/assets/ec2.svg" width="45px" data-hideif="instance.avatar">
+      </td>
+      <td class="col-name">
+        <div class="name">
+          <span data-bind="instance.name" data-showif="instance.name"></span>
+          <span class="no-name" data-hideif="instance.name">no-name</span>
+        </div>
+        <div class="type" data-bind="instance.instance_type"></div>
+        <div class="description">
+          <span data-bind="instance.project" data-showif="instance.project"></span><span data-showif="instance.project | and instance.role"> | </span><span data-bind="instance.role" data-showif="instance.role"></span>
+        </div>
+      </td>
+      <td data-bind-class="instance.status | prepend 'fa status '">
+      </td>
+     <!--  <td class="col-score value">
+        <div class="current-score" data-bind="item.current_score" data-bind-title="item.current_score_desc"></div>
+        <div class="previous-score">(<span data-bind="item.previous_score" data-bind-title="item.previous_score_desc"></span>)</div>
+      </td>
+      <td class="col-trend">
+        <span data-bind-class="item.trend_class | prepend 'trend-'">
+          <span data-showif="item.trend_class" data-bind-class="item.trend_class | prepend 'fa fa-arrow-'"></span>
+        </span>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+
+<p class="updated-at" data-bind="updatedAtMessage"></p>

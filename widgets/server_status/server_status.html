@@ -1,0 +1,30 @@
+<h1 class="title" data-bind="title"></h1>
+
+<!-- <ul>
+  <li data-foreach-item="items">
+    <span class="label" data-bind="item.label"></span>
+    <span class="value"><div data-bind-class="item.color"><i data-bind-class="item.arrow"></i></div></span>
+  </li>
+</ul> -->
+
+<ul>
+  <li class="server" data-foreach-item="items">
+    <h3 class="name">
+      <span data-bind="item.server"></span>
+    </h3>
+    <ul>
+      <li class="app" data-foreach-app="item.applications">
+        <div class="name">
+          <span data-hideif="app.is_up"><i class="red fa fa-warning"></i></span> <span data-bind="app.name"></span>
+        </div>
+        <div class="processes" data-foreach-state="app.states">
+          <span class="" data-bind="state.state"></span> <span class="" data-bind="state.process_count"></span>
+          <span data-bind-class="state.color"><i data-bind-class="state.icon"></i></span>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>

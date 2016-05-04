@@ -1,4 +1,8 @@
 require 'dashing'
+require 'logger'
+
+$logger = Logger.new(STDOUT)
+$logger.level = Logger::INFO
 
 configure do
   set :auth_token, 'YOUR_AUTH_TOKEN'
