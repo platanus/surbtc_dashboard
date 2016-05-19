@@ -6,4 +6,4 @@ gem "dialers"
 gem "activesupport"
 gem "pry"
 gem "rest-client"
-gem "google-api-client"
+gem "google-api-client", '0.8'
