@@ -33,7 +33,7 @@ SCHEDULER.every '10s', :first_in => 0 do |job|
     'start-date' => startDate,
     'end-date' => endDate,
     # 'dimensions' => "ga:month",
-    'metrics' => "ga:visitors",
+    'metrics' => "ga:newUsers",
     # 'sort' => "ga:month" 
   })
 
