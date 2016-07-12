@@ -17,8 +17,8 @@ module Exchange
       )
       Exchange::StatsFactory.new(stats, AdminStatsCollection.new).build_collection
     end
-    def get_users_stats
-      stats = api_caller.get("exchange_stats/users").transform_to_many(
+    def get_users_stats(from=nil,to=nil)
+      stats = api_caller.get("exchange_stats/users", from: from, to: to).transform_to_many(
         Exchange::SingleStat, root: "users_stats"
       )
       Exchange::StatsFactory.new(stats, UsersStatsCollection.new).build_collection
