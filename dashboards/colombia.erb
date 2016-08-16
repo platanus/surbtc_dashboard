@@ -1,0 +1,141 @@
+<% content_for :title do %>
+	  Colombia's SURBTC Dashboard
+<% end %>
+
+<div id="container">
+  <div class="header">
+    <div class="platanus gs_w" data-row="1" data-col="1" data-sizex="4">
+      <span class="header-logo">
+        <img src="https://www.surbtc.com/assets/landing/logo.png" height="36px" />
+      </span>
+      <span data-id="clock"
+            data-view="clock_header"></span>
+      <span data-id="usd_in_cop"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Dolar"></span>
+      <span data-id="bitstamp_price_usd"
+            data-view="number_header"
+            data-prefix="USD "
+            data-title="Bitstamp"></span>
+      <span data-id="bitstamp_price_cop"
+            data-view="number_header"
+            data-prefix="$ "
+            data-title="Bitstamp"></span>
+      <span data-id="surbtc_price_cop"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="SURBTC"></span>
+    </div>
+    <div class="platanus gs_w" data-row="1" data-col="1" data-sizex="4">
+      <span class="header-logo">
+      </span>
+      <span data-id="btc_dep_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="BTC Dep Pend"></span>
+      <span data-id="cop_dep_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="COP Dep Pend"></span>
+      <span data-id="btc_ret_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="BTC Ret Pend"></span>
+      <span data-id="cop_ret_pend"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="COP Ret Pend"></span>
+      <span data-id="ver_ident_cop"
+            data-view="number_header"
+            data-prefix=" "
+            data-title="Ver. Ident."></span>
+    </div>
+    <div class="platanus gs_w" data-row="1" data-col="1" data-sizex="4">
+      <span data-id="surbtc_spread_cop"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Spread"></span>
+      <span data-id="surbtc_min_ask_cop"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Min Ask"></span>
+      <span data-id="surbtc_max_bid_cop"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Max Bid"></span>
+      <span data-id="24hrs_volume_cop"
+            data-view="number_header"
+            data-prefix="$"
+            data-title="Vol 24hrs (COP)"></span>
+    </div>
+    <div class="platanus gs_w" data-row="1" data-col="1" data-sizex="4">
+      <span data-id="growth_prev_month_cop"
+            data-view="number_header"
+            data-suffix="%"
+            data-title="Prev Month Growth"></span>
+      <span data-id="growth_current_month_cop"
+            data-view="number_header"
+            data-suffix="%"
+            data-title="Current Month Growth"></span>
+      <span data-id="growth_avg_3_months_cop"
+            data-view="number_header"
+            data-suffix="%"
+            data-title="Avg Growth (12 Months)"></span>
+    </div>
+  </div>
+
+
+  <div class="gridster">
+    <ul>
+      <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="monthly_trade_cop"
+             data-view="Rickshawgraph"
+             data-title="Transado"
+	     data-moreinfo=""
+             style="background-color: white;"
+             data-renderer="bar"
+             data-min="0"
+             data-max=""
+             data-summary-method="none"
+	     data-legend="false"
+             data-color-scheme="rainbow"></div>
+      </li>
+      <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="monthly_users_cop"
+             data-view="Rickshawgraph"
+             data-title="Nuevos"
+             data-moreinfo=""
+             style="background-color: white;"
+	     data-renderer="bar"
+	     data-stacked="false"
+             data-min="0"
+             data-max=""
+             data-summary-method="none"
+             data-legend="false"
+             data-color-scheme="rainbow"></div>
+      </li>
+
+      <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="monthly_active_users_cop"
+             data-view="Rickshawgraph"
+             data-title="Activos"
+             data-moreinfo=""
+             style="background-color: white;"
+	     data-renderer="bar"
+	     data-stacked="false"
+             data-min="0"
+             data-max=""
+             data-summary-method="none"
+             data-legend="false"
+             data-color-scheme="rainbow"></div>
+      </li>
+
+	    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="progress_bars" data-view="ProgressBars" data-title="Project Bars"></div>
+	</li>	    
+  
+    </ul>
+  </div>
+
+</div>

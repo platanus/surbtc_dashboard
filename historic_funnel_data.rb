@@ -1,8 +1,11 @@
+require 'rubygems'
+require 'active_support/all'
 require 'net/http'
 require 'uri'
 require 'rest-client'
 require 'google/api_client'
 require 'date'
+Dir[File.dirname(__FILE__) + "/lib/**/*.rb"].each {|file| require file }
 
 # Update these to match your own apps credentials
 service_account_email = 'dashboard01@surbtc-ga.iam.gserviceaccount.com' # Email of service account
@@ -23,35 +26,43 @@ client.authorization = Signet::OAuth2::Client.new(
   :issuer => service_account_email,
   :signing_key => key)
 
-SCHEDULER.every '1m', :first_in => 0 do |job|
         client.authorization.fetch_access_token!
         analytics = client.discovered_api('analytics','v3')
-        startDate = (Time.now - 30.days).strftime("%Y-%m-01") # first day of current month
-        endDate = Time.now.strftime("%Y-%m-%d")  # now
-  visitCount = client.execute(:api_method => analytics.data.ga.get, :parameters => { 
-    'ids' => "ga:" + profileID, 
-    'start-date' => startDate,
-    'end-date' => endDate,
-    # 'dimensions' => "ga:month",
-    'metrics' => "ga:newUsers",
-    # 'sort' => "ga:month" 
-  })
+puts ["From", "To", "Adquiridos", "Activados", "Retenidos", "Churn Rate"].join("\t")
+7.times do |i|
+        from = (Time.now - (1+i)*30.days)
+        to = from + 30.days
+        startDate = from.strftime("%Y-%m-%d") 
+        endDate = to.strftime("%Y-%m-%d")  # now
+
+        visitCount = client.execute(:api_method => analytics.data.ga.get, :parameters => { 
+          'ids' => "ga:" + profileID, 
+          'start-date' => startDate,
+          'end-date' => endDate,
+          # 'dimensions' => "ga:month",
+          #'metrics' => "ga:visitors",
+          'metrics' => "ga:newUsers",
+          # 'sort' => "ga:month" 
+        })
 
         visitors = visitCount.data.rows[0][0].to_i
 
         exchange = Exchange::Api.new
 
-        now = exchange.get_users_stats
+        now = exchange.get_users_stats from, to
 
 	highschoolers = now.highschoolers.to_i
         undergrads = now.undergrads.to_i
         comebackers = now.comebackers.to_i
         oldies = now.oldies.to_i
+        churn_rate = now.churn_rate.to_f
 
 	progress_items = [{ name: "Adquiridos", progress: (100*highschoolers.to_f/visitors).round(4) }, #  registros/visitantes
 		          { name: "Activados", progress: (100*undergrads.to_f/highschoolers).round(4) }, #  primera compra/registros
-		          { name: "Retenidos", progress: (100*comebackers.to_f/oldies).round(4) } #  comebackers/oldies
+		          { name: "Retenidos", progress: (100*comebackers.to_f/oldies).round(4) }, #  comebackers/oldies
+		          { name: "Churn Rate", progress: (100*churn_rate).round(4) }  
 	]
-
-	send_event( 'progress_bars', {title: "Funnel", progress_items: progress_items} )
+        print "#{from.strftime("%m-%d-%Y")}\t#{to.strftime("%m-%d-%Y")}\t"
+        print [(100*highschoolers.to_f/visitors).round(4), (100*undergrads.to_f/highschoolers).round(4), (100*comebackers.to_f/oldies).round(4), (100*churn_rate).round(4)].collect(&:to_s).join("\t") + "\n"
+        sleep 5
 end

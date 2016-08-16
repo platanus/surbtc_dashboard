@@ -30,7 +30,7 @@ SCHEDULER.every '2m', :first_in => 1 do
   change_clp = current_valuation_clp - last_valuation_clp
 
   # Send the event
-  send_event('bitstamp_price_usd', { current: current_valuation_usd, difference: change_usd.abs, last: last_valuation_usd })
-  send_event('bitstamp_price_clp', { current: current_valuation_clp, difference: change_clp.abs, last: last_valuation_clp })
+  send_event('bitstamp_price_usd', { current: current_valuation_usd })
+  send_event('bitstamp_price_clp', { current: current_valuation_clp })
 
 end

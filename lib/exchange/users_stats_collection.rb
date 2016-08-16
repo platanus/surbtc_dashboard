@@ -3,6 +3,7 @@ module Exchange
     attr_accessor :highschoolers, 
 	          :undergrads,
 		  :comebackers,
+		  :churn_rate,
 		  :oldies
   end
 end

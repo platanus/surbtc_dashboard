@@ -26,8 +26,8 @@ SCHEDULER.every '1m', :first_in => 5 do
   change_spread = current_spread_val - last_spread_val
 
   # Send the event
-  send_event('surbtc_price', { current: current_valuation, difference: change.abs, last: last_valuation })
-  send_event('surbtc_spread', { current: current_spread_val, difference: change_spread.abs, last: last_spread_val })
+  send_event('surbtc_price', { current: current_valuation })
+  send_event('surbtc_spread', { current: current_spread_val.round(2) })
   send_event('surbtc_max_bid', { current: max_bid })
   send_event('surbtc_min_ask', { current: min_ask })
 

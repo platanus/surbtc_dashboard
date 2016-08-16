@@ -3,7 +3,9 @@ require "active_support/core_ext"
 
 require 'logger'
 
-SCHEDULER.every "10s", :first_in => 0 do
+$logger = Logger.new(STDERR)
+
+SCHEDULER.every "30s", :first_in => 0 do
   
   trade_series = Hash.new
   new_users_series = Hash.new
@@ -69,10 +71,14 @@ end
 
 def calculate_avg_growth trade_series_data
   growths = []
+  $logger.info "calculate_avg_growth calc start #{Time.now}"
   (1..10).each do |i|
     last_traded = trade_series_data[i][:y]
     prev_last_traded = trade_series_data[i-1][:y]
-    growths << (100 * (last_traded - prev_last_traded).to_f / prev_last_traded)
+    v = (100 * (last_traded - prev_last_traded).to_f / prev_last_traded)
+    $logger.info "#{i} value = #{v}"
+    growths << v
   end
+  $logger.info "calculate_avg_growth calc end #{Time.now}"
   growths.inject{ |sum, el| sum + el }.to_f / growths.size # average
 end

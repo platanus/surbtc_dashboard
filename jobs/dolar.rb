@@ -13,6 +13,6 @@ SCHEDULER.every '1m', :first_in => 1 do
   change = current_valuation - last_valuation
 
   # Send the event
-  send_event('usd_in_clp', { current: current_valuation, difference: change.abs, last: last_valuation })
+  send_event('usd_in_clp', { current: current_valuation })
 
 end
