@@ -1,15 +1,16 @@
 require 'net/http'
 require 'uri'
+require "pry"
+
 
 current_valuation_usd = 0
 current_valuation_clp = 0
 
-SCHEDULER.every '2m', :first_in => 1 do
+SCHEDULER.every '5m', :first_in => 1 do
 
-  usd_in_clp = JSON.parse(RestClient.get "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22USDCLP%22)&env=store://datatables.org/alltableswithkeys&format=json")["query"]["results"]["rate"]["Rate"].to_f
+  usd_in_clp = JSON.parse(RestClient.get "http://currencyconverter.services.surbtc.com/convert/usd/clp?api_key=r9f6UELXQxVKhPXoqTfrodgjckwygENJrureaKibJ9CuCaCosW")["result"].to_f
+  usd_in_cop = JSON.parse(RestClient.get "http://currencyconverter.services.surbtc.com/convert/usd/cop?api_key=r9f6UELXQxVKhPXoqTfrodgjckwygENJrureaKibJ9CuCaCosW")["result"].to_f
 
-  last_valuation_usd = current_valuation_usd
-  last_valuation_clp = current_valuation_clp
   # Go get the prices from bitstamp open api
   uri = URI.parse('https://www.bitstamp.net/api/ticker/')
   http = Net::HTTP.new(uri.host, uri.port)
@@ -26,11 +27,10 @@ SCHEDULER.every '2m', :first_in => 1 do
   # Prepare the event information
   current_valuation_usd = obj['last'].to_i
   current_valuation_clp = (current_valuation_usd * usd_in_clp).to_i
-  change_usd = current_valuation_usd - last_valuation_usd
-  change_clp = current_valuation_clp - last_valuation_clp
-
+  current_valuation_cop = (current_valuation_usd * usd_in_cop).to_i
   # Send the event
   send_event('bitstamp_price_usd', { current: current_valuation_usd })
   send_event('bitstamp_price_clp', { current: current_valuation_clp })
+  send_event('bitstamp_price_cop', { current: current_valuation_cop })
 
 end
