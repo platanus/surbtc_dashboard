@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 require 'rest-client'
 
-SCHEDULER.every '1m', :first_in => 5 do
+SCHEDULER.every '1m', :first_in => 30 do
   ["cop","clp"].each do |market|
     uri = "https://www.surbtc.com/api/v1/markets/btc-#{market}/indicators.json"
     # Go get the prices from yahoo open api

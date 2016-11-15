@@ -23,7 +23,7 @@ client.authorization = Signet::OAuth2::Client.new(
   :issuer => service_account_email,
   :signing_key => key)
 
-SCHEDULER.every '1m', :first_in => 0 do |job|
+SCHEDULER.every '30m', :first_in => 0 do |job|
         client.authorization.fetch_access_token!
         analytics = client.discovered_api('analytics','v3')
         startDate = (Time.now - 30.days).strftime("%Y-%m-01") # first day of current month

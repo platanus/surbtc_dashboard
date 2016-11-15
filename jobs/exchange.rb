@@ -5,7 +5,7 @@ require 'logger'
 
 $logger = Logger.new(STDERR)
 
-SCHEDULER.every "30s", :first_in => 0 do
+SCHEDULER.every "5m", :first_in => 0 do
   
   trade_series = Hash.new
   trade_series_clp = Hash.new

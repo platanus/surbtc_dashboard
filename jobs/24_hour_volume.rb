@@ -5,7 +5,7 @@ require 'logger'
 
 current_valuation = 0
 
-SCHEDULER.every "10s", :first_in => 5 do
+SCHEDULER.every "1m", :first_in => 30 do
   last_valuation = current_valuation
 #	spread / puntas / 24hrs
   exchange = Exchange::Api.new
