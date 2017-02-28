@@ -79,6 +79,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    redis (3.3.3)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -132,4 +133,5 @@ DEPENDENCIES
   google-api-client (= 0.8)
   patron
   pry
+  redis
   rest-client

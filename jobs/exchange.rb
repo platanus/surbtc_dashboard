@@ -40,8 +40,11 @@ SCHEDULER.every "5m", :first_in => 0 do
     step_stats = exchange.get_stats(t, t2);
 
     datapoint = { x: t.to_i, y: step_stats.transacted_amount.to_i}
+    $logger.info "datapoint transacted_amount  #{datapoint}"
     datapoint_clp = { x: t.to_i, y: step_stats.transacted_amount_clp.to_i}
+    $logger.info "datapoint_clp transacted_amount_clp  #{datapoint_clp}"
     datapoint_cop = { x: t.to_i, y: step_stats.transacted_amount_cop.to_i}
+    $logger.info "datapoint_cop transacted_amount_cop  #{datapoint_cop}"
 
     data.push datapoint
     data_clp.push datapoint_clp

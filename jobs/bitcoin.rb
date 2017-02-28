@@ -7,9 +7,9 @@ current_valuation_usd = 0
 current_valuation_clp = 0
 
 SCHEDULER.every '5m', :first_in => 1 do
-
-  usd_in_clp = JSON.parse(RestClient.get "http://currencyconverter.services.surbtc.com/convert/usd/clp?api_key=r9f6UELXQxVKhPXoqTfrodgjckwygENJrureaKibJ9CuCaCosW")["result"].to_f
-  usd_in_cop = JSON.parse(RestClient.get "http://currencyconverter.services.surbtc.com/convert/usd/cop?api_key=r9f6UELXQxVKhPXoqTfrodgjckwygENJrureaKibJ9CuCaCosW")["result"].to_f
+  currencyservice_url = "http://10.142.0.3:10000"
+  usd_in_clp = JSON.parse(RestClient.get "#{currencyservice_url}/convert/usd/clp?api_key=#{ENV['CURRENCY_CONVERTER_API_KEY']}")["result"].to_f
+  usd_in_cop = JSON.parse(RestClient.get "#{currencyservice_url}/convert/usd/cop?api_key=#{ENV['CURRENCY_CONVERTER_API_KEY']}")["result"].to_f
 
   # Go get the prices from bitstamp open api
   uri = URI.parse('https://www.bitstamp.net/api/ticker/')

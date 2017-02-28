@@ -16,6 +16,10 @@ SCHEDULER.every "1m", :first_in => 30 do
   send_event_for "BTC_COP", stats
   send_event_for "COP", stats
   send_event_for "CLP", stats
+
+  current_valuation = stats.transacted_amount
+  current_valuation = current_valuation.to_f.round(2)
+  send_event('24hrs_volume', { current: current_valuation })
 end
 
 def send_event_for currency, stats
